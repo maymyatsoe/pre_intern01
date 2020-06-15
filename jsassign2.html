@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title></title>
+        <script>
+            
+        
+        document.addEventListener('DOMContentLoaded',()=>{
+            document.querySelector('#todo-list').onsubmit = () => {
+                const li = document.createElement('li');
+                li.innerHTML = document.querySelector('#task').value;
+                document.querySelector('#list').append(li);
+                document.querySelector('#task').value = '';
+                return false;
+            };
+        });
+
+        function sub() {
+            var text1=document.getElementById('task');
+            var button= document.getElementById('btn');
+            if (text1.value == '') {
+               button.disabled = true;
+            }
+            else {
+                button.disabled = false;
+            }
+        }    
+
+        </script>
+    </head>
+    <body>
+        <p> To Do Lists</p>
+        <ul id="list"></ul>
+        <form id="todo-list">
+            <input type="text" onkeyup="sub()" id="task" autocomplete="off" autofocus placeholder="Add todo-task" >
+            <input type="submit" disabled id="btn">
+        </form>
+    </body>
+</html>
